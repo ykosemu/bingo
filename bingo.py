@@ -63,14 +63,18 @@ div.stButton > button:first-child:focus {
 st.markdown(button_css, unsafe_allow_html=True)
 
 # タイトルと抽選ボタンの配置
-col1, col2 = st.columns([1, 1])
+col1, col2 , col3 = st.columns([4, 2, 6])
 columns1, columns2, columns3, columns4, columns5, columns6, columns7, columns8 = st.columns([2, 2, 2, 2, 2, 3, 7, 3])
 
 with col1:
     st.title('システム本部 ビンゴ抽選')
 
+with col2:    
+    image_path = "dchan.png"
+    st.image(image_path, width=160)
+
 # 抽選ボタンの配置と機能
-with col2:
+with col3:
     if st.button("抽選する"):
         remaining_numbers = [num for num in range(1, 76) if num not in session_state.selected_numbers]
         # 未選択の数字がある場合にのみ抽選を行う
@@ -82,7 +86,7 @@ with col2:
             session_state.selected_numbers.append(selected_number)
 
             # 選ばれた数字を表示
-            with col2:
+            with col3:
                 st.markdown(f"<h1 style='font-size: 48px; color: navy;'>当たり番号</h1>", unsafe_allow_html=True)
             with columns7:
                 st.markdown(f"<h1 style='text-align: right; font-size: 480px; color: navy;'>{selected_number}</h1>", unsafe_allow_html=True)
