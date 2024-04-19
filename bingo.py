@@ -71,7 +71,7 @@ with col1:
 
 with col2:    
     image = "dchan.png"
-    st.image(image, width=160)
+    st.image(image, width=140)
 
 # 抽選ボタンの配置と機能
 with col3:
