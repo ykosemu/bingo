@@ -18,7 +18,7 @@ def get_base64_encoded_image(image_path):
     with open(image_path, "rb") as img_file:
         return base64.b64encode(img_file.read()).decode('utf-8')
 
-image_path = "test2.png"  # 背景画像パス
+image_path = "test.png"  # 背景画像パス
 encoded_image = get_base64_encoded_image(image_path)
 
 # CSS文字列にdata:image/png;base64,プレフィックスを追加
