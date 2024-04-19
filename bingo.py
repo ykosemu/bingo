@@ -12,6 +12,32 @@ def get_session_state():
 
 session_state = get_session_state()
 
+import base64
+
+def get_base64_encoded_image(image_path):
+    with open(image_path, "rb") as img_file:
+        return base64.b64encode(img_file.read()).decode('utf-8')
+
+image_path = "test2.png"  # 背景画像パス
+encoded_image = get_base64_encoded_image(image_path)
+
+# CSS文字列にdata:image/png;base64,プレフィックスを追加
+css = f'''
+<style>
+    .stApp {{
+        background-image: url("data:image/png;base64,{encoded_image}");
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll;
+        background-color:rgba(255,255,255,0.4);
+    }}
+    .stApp > header {{
+        background-color: transparent;
+    }}
+</style>
+'''
+st.markdown(css, unsafe_allow_html=True)
+
 # ボタンのカスタムスタイルを定義
 button_css = """
 <style>
