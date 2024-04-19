@@ -70,8 +70,8 @@ with col1:
     st.title('システム本部 ビンゴ抽選')
 
 with col2:    
-    image_path = "dchan.png"
-    st.image(image_path, width=160)
+    image = "dchan.png"
+    st.image(image, width=160)
 
 # 抽選ボタンの配置と機能
 with col3:
