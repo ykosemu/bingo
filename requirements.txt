@@ -1,8 +1,0 @@
-streamlit
-pathlib
-typing
-click
-matplotlib
-pillow
-pandas
-boto3
